@@ -1,6 +1,0 @@
-/Users/mymac/Desktop/test-portaudio-master/build/CMakeFiles/rebuild_cache.dir
-/Users/mymac/Desktop/test-portaudio-master/build/CMakeFiles/edit_cache.dir
-/Users/mymac/Desktop/test-portaudio-master/build/CMakeFiles/pa_devs.dir
-/Users/mymac/Desktop/test-portaudio-master/build/CMakeFiles/sample_portaudio.dir
-/Users/mymac/Desktop/test-portaudio-master/build/CMakeFiles/echo.dir
-/Users/mymac/Desktop/test-portaudio-master/build/CMakeFiles/paex_record.dir

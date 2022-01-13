@@ -12,8 +12,8 @@ target_link_libraries(pa_devs portaudio_static)
 add_executable(paex_record paex_record.c)
 target_link_libraries(paex_record portaudio_static)
 
-add_executable(sample_portaudio sample_portaudio.c)
-target_link_libraries(sample_portaudio portaudio_static)
+add_executable(beep beep.c)
+target_link_libraries(beep portaudio_static)
 
 add_executable(echo echo.c)
 target_link_libraries(echo portaudio_static)
