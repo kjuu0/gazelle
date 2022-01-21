@@ -1,15 +1,11 @@
 #include "rpc/server.h"
 #include "seal/seal.h"
+#include "env.h"
 
 #include <condition_variable>
 #include <iostream>
 #include <mutex>
 #include <string>
-
-// Configure this based off of voice recording sampling rate...
-const size_t MSG_SIZE = 512;
-// Hard-coded until registration is supported
-const size_t NUM_USERS = 2;
 
 bool all_msgs_received;
 size_t msg_count;
