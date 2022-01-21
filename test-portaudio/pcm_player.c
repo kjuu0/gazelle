@@ -53,8 +53,6 @@
 /* #define DITHER_FLAG     (paDitherOff) */
 #define DITHER_FLAG     (0) /**/
 /** Set to 1 if you want to capture the recording to a file. */
-#define WRITE_TO_FILE   (1)
-#define PLAYBACK (1)
 
 /* Select sample format. */
 #if 0
@@ -230,6 +228,7 @@ int main(void)
         err = Pa_CloseStream( stream );
         if( err != paNoError ) goto done;
     }
+
 
 done:
     printf("Done.\n"); fflush(stdout);

@@ -4,7 +4,7 @@
 
 #define SAMPLE_RATE  (44100)
 
-#define NUM_CHANNELS    (2)
+#define NUM_CHANNELS (2)
 typedef float SAMPLE;
 
 typedef struct

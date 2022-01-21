@@ -53,8 +53,8 @@
 /* #define DITHER_FLAG     (paDitherOff) */
 #define DITHER_FLAG     (0) /**/
 /** Set to 1 if you want to capture the recording to a file. */
-#define WRITE_TO_FILE   (0)
-#define PLAYBACK (1)
+#define WRITE_TO_FILE   (1)
+#define PLAYBACK (0)
 
 /* Select sample format. */
 #if 1
@@ -313,7 +313,7 @@ int main(void)
 #if WRITE_TO_FILE
     {
         FILE  *fid;
-        fid = fopen("recorded.raw", "wb");
+        fid = fopen("input.pcm", "wb");
         if( fid == NULL )
         {
             printf("Could not open file.");
@@ -322,7 +322,7 @@ int main(void)
         {
             fwrite( data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid );
             fclose( fid );
-            printf("Wrote data to 'recorded.raw'\n");
+            printf("Wrote data to 'input.pcm'\n");
         }
     }
 #endif
