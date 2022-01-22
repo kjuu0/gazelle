@@ -55,7 +55,7 @@
 /** Set to 1 if you want to capture the recording to a file. */
 
 /* Select sample format. */
-#if 0
+#if 1
 #define PA_SAMPLE_TYPE  paFloat32
 typedef float SAMPLE;
 #define SAMPLE_SILENCE  (0.0f)
@@ -141,7 +141,6 @@ static int playCallback( const void *inputBuffer, void *outputBuffer,
 int main(void);
 int main(void)
 {
-    /* Same as paex_record, initialize parameters  -------------------------------------------- */
     // PaStreamParameters:
     // int device
     // int channelCount
@@ -155,6 +154,13 @@ int main(void)
     PaStream*           stream;
     // int err, see PaErrorCode in portaudio.h file 
     PaError             err = paNoError;
+    //typedef struct
+    // {
+    //     int          frameIndex;  /* Index into sample array. */
+    //     int          maxFrameIndex;
+    //     SAMPLE      *recordedSamples; // float recorded samples
+    // }
+    // paTestData;
     paTestData          data;
 
     int                 i;
@@ -163,6 +169,8 @@ int main(void)
     int                 numBytes;
     SAMPLE              max, val; // float
     double              average;
+
+    printf("patest_record.c\n"); fflush(stdout);
 
 
     // set the total number of frames to be recorded
@@ -175,11 +183,22 @@ int main(void)
     numBytes = numSamples * sizeof(SAMPLE);
     // allocate space for recordedSamples(SAMPLE) in paTestData data
     data.recordedSamples = (SAMPLE *) malloc( numBytes ); /* From now on, recordedSamples is initialised. */
+    if( data.recordedSamples == NULL )
+    {
+        printf("Could not allocate record array.\n");
+        goto done;
+    } // No record space error
+    
+    // set default voice to be 0
+    for( i=0; i<numSamples; i++ ) data.recordedSamples[i] = 0;
 
+    // always do this to initialze Portaudio
+    err = Pa_Initialize();
+    if( err != paNoError ) goto done; // typical way to check for errors
 
 /* Read PCM data.  -------------------------------------------- */
     FILE *fid;
-    fid = fopen("output.pcm", "wb");
+    fid = fopen("input.pcm", "wb");
     if( fid == NULL )
         {
             printf("Could not open file.");
@@ -187,7 +206,7 @@ int main(void)
     else{
         fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid);
         fclose( fid );
-        printf("Read data from 'output.pcm'\n");
+        printf("Read data from 'input.pcm'\n");
     }
 
 /* Playback recorded data.  -------------------------------------------- */
@@ -198,7 +217,7 @@ int main(void)
         fprintf(stderr,"Error: No default output device.\n");
         goto done;
     }
-    outputParameters.channelCount = 2;                     /* stereo output */
+    outputParameters.channelCount = NUM_CHANNELS;                     /* stereo output */
     outputParameters.sampleFormat =  PA_SAMPLE_TYPE;
     outputParameters.suggestedLatency = Pa_GetDeviceInfo( outputParameters.device )->defaultLowOutputLatency;
     outputParameters.hostApiSpecificStreamInfo = NULL;
