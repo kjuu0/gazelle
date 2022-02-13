@@ -1,0 +1,7 @@
+INCLUDE_DIRECTORIES(/usr/local/include)
+LINK_DIRECTORIES(/usr/local/lib)
+
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/bin)
+
+ADD_EXECUTABLE(gazelle_server server.cpp)
+TARGET_LINK_LIBRARIES(gazelle_server rpc ${CMAKE_THREAD_LIBS_INIT})
