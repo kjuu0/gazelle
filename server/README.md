@@ -1,10 +1,20 @@
 # Gazelle Server
 
-Currently, the server just implements an add function and launches an RPC server that handles add calls from clients.
+The server implements an add function and launches an RPC server that handles add calls from clients.
 
 ## Dependencies
 
 - [rpclib](https://github.com/rpclib/rpclib): for answering queries using RPC
+
+### Install rpclib
+```
+git clone https://github.com/rpclib/rpclib.git
+pushd rpclib
+cmake .
+make
+sudo make install
+popd
+```
 
 ## Build
 
