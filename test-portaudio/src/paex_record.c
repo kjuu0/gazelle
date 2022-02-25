@@ -53,8 +53,8 @@
 /* #define DITHER_FLAG     (paDitherOff) */
 #define DITHER_FLAG     (0) /**/
 /** Set to 1 if you want to capture the recording to a file. */
-#define WRITE_TO_FILE   (0)
-#define PLAYBACK (1)
+#define WRITE_TO_FILE   (1)
+#define PLAYBACK (0)
 
 /* Select sample format. */
 #if 1
@@ -210,13 +210,6 @@ int main(void)
     PaStream*           stream;
     // int err, see PaErrorCode in portaudio.h file 
     PaError             err = paNoError;
-    //typedef struct
-    // {
-    //     int          frameIndex;  /* Index into sample array. */
-    //     int          maxFrameIndex;
-    //     SAMPLE      *recordedSamples; // float recorded samples
-    // }
-    // paTestData;
     paTestData          data;
 
     int                 i;
