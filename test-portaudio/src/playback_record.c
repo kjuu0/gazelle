@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<fcntl.h>
 #include "portaudio.h"
+
 
 /* Select sample format. */
 #define SAMPLE_RATE  (44100)
@@ -72,7 +74,6 @@ static int playCallback( const void *inputBuffer, void *outputBuffer,
     return finished;
 }
 
-
 int main(void);
 int main(void)
 {
@@ -94,9 +95,14 @@ int main(void)
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
     FILE *fid;
-    fid = fopen("recorded.raw", "wb");
+    fid = fopen("recorded.raw", "r");
+
     SAMPLE pcm = readfloat(fid);
     *(data.recordedSamples) = pcm;
+    fclose(fid);
+
+    err = Pa_Initialize();
+    if( err != paNoError ) goto done;
 
     /* Playback recorded data.  -------------------------------------------- */
     outputParameters.device = Pa_GetDefaultOutputDevice(); /* default output device */
