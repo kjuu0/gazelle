@@ -2,6 +2,14 @@
 
 ## Dependencies
 - [portaudio](http://portaudio.com/): For Voice Call I/O
+- [download portaudio](http://files.portaudio.com/archives/pa_stable_v190700_20210406.tgz)
+
+## Install Portaudio
+From `~/portaudio`:
+```
+./configure && make
+sudo make install
+```
 
 ## Build
 
