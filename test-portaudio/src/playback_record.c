@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<fcntl.h>
 #include "portaudio.h"
-
 
 /* Select sample format. */
 #define SAMPLE_RATE  (44100)
@@ -13,12 +11,11 @@
 typedef float SAMPLE;
 #define SAMPLE_SILENCE  (0.0f)
 
-float readfloat(FILE *f) {
-  float v;
-  fread((void*)(&v), sizeof(v), 1, f);
-  return v;
-}
-
+// float readfloat(FILE *f) {
+//   float v;
+//   fread((void*)(&v), sizeof(v), 1, f);
+//   return v;
+// }
 typedef struct
 {
     int          frameIndex;  /* Index into sample array. */
@@ -96,9 +93,7 @@ int main(void)
 
     FILE *fid;
     fid = fopen("recorded.raw", "r");
-
-    SAMPLE pcm = readfloat(fid);
-    *(data.recordedSamples) = pcm;
+    fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), data.maxFrameIndex, fid);
     fclose(fid);
 
     err = Pa_Initialize();
