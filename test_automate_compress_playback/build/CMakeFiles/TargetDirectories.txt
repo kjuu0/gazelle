@@ -1,0 +1,6 @@
+/Users/mymac/Desktop/CS196/gazelle/test_automate_compress_playback/build/CMakeFiles/rebuild_cache.dir
+/Users/mymac/Desktop/CS196/gazelle/test_automate_compress_playback/build/CMakeFiles/edit_cache.dir
+/Users/mymac/Desktop/CS196/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/rebuild_cache.dir
+/Users/mymac/Desktop/CS196/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/edit_cache.dir
+/Users/mymac/Desktop/CS196/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/playback_record.dir
+/Users/mymac/Desktop/CS196/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/paex_record.dir

@@ -1,0 +1,22 @@
+/usr/bin/install -c -d /usr/local/lib
+/bin/sh ./libtool --mode=install /usr/bin/install -c lib/libportaudio.la /usr/local/lib
+libtool: install: /usr/bin/install -c lib/.libs/libportaudio.2.dylib /usr/local/lib/libportaudio.2.dylib
+libtool: install: (cd /usr/local/lib && { ln -s -f libportaudio.2.dylib libportaudio.dylib || { rm -f libportaudio.dylib && ln -s libportaudio.2.dylib libportaudio.dylib; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libportaudio.lai /usr/local/lib/libportaudio.la
+libtool: install: /usr/bin/install -c lib/.libs/libportaudio.a /usr/local/lib/libportaudio.a
+libtool: install: chmod 644 /usr/local/lib/libportaudio.a
+libtool: install: ranlib /usr/local/lib/libportaudio.a
+/usr/bin/install -c -d /usr/local/include
+for include in portaudio.h; do \
+		/usr/bin/install -c -m 644 -m 644 ./include/$include /usr/local/include/$include; \
+	done
+/usr/bin/install -c -d /usr/local/lib/pkgconfig
+/usr/bin/install -c -m 644 portaudio-2.0.pc /usr/local/lib/pkgconfig/portaudio-2.0.pc
+
+------------------------------------------------------------
+PortAudio was successfully installed.
+
+On some systems (e.g. Linux) you should run 'ldconfig' now
+to make the shared object available.  You may also need to
+modify your LD_LIBRARY_PATH environment variable to include
+the directory /usr/local/lib
