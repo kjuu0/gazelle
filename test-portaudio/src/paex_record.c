@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "portaudio.h"
 
-/* #define SAMPLE_RATE  (17932) // Test failure to open with this value. */
-#define SAMPLE_RATE  (44100)
+// #define SAMPLE_RATE  (17932) // Test failure to open with this value. */
+#define SAMPLE_RATE  (16000)
 #define FRAMES_PER_BUFFER (0)
-#define NUM_SECONDS     (5)
+#define NUM_SECONDS     (2)
 #define NUM_CHANNELS    (2)
 /* #define DITHER_FLAG     (paDitherOff) */
 #define DITHER_FLAG     (0) /**/
@@ -14,7 +14,7 @@
 #define PLAYBACK (0)
 
 /* Select sample format. */
-#if 1
+#if 0
 #define PA_SAMPLE_TYPE  paFloat32
 typedef float SAMPLE;
 #define SAMPLE_SILENCE  (0.0f)
@@ -96,57 +96,6 @@ static int recordCallback( const void *inputBuffer, void *outputBuffer,
         }
     }
     data->frameIndex += framesToCalc;
-    return finished;
-}
-
-/* This routine will be called by the PortAudio engine when audio is needed.
-** It may be called at interrupt level on some machines so don't do anything
-** that could mess up the system like calling malloc() or free().
-*/
-static int playCallback( const void *inputBuffer, void *outputBuffer,
-                         unsigned long framesPerBuffer,
-                         const PaStreamCallbackTimeInfo* timeInfo,
-                         PaStreamCallbackFlags statusFlags,
-                         void *userData )
-{
-    paTestData *data = (paTestData*)userData;
-    SAMPLE *rptr = &data->recordedSamples[data->frameIndex * NUM_CHANNELS];
-    SAMPLE *wptr = (SAMPLE*)outputBuffer;
-    unsigned int i;
-    int finished;
-    unsigned int framesLeft = data->maxFrameIndex - data->frameIndex;
-
-    (void) inputBuffer; /* Prevent unused variable warnings. */
-    (void) timeInfo;
-    (void) statusFlags;
-    (void) userData;
-
-    if( framesLeft < framesPerBuffer )
-    {
-        /* final buffer... */
-        for( i=0; i<framesLeft; i++ )
-        {
-            *wptr++ = *rptr++;  /* left */
-            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
-        }
-        for( ; i<framesPerBuffer; i++ )
-        {
-            *wptr++ = 0;  /* left */
-            if( NUM_CHANNELS == 2 ) *wptr++ = 0;  /* right */
-        }
-        data->frameIndex += framesLeft;
-        finished = paComplete;
-    }
-    else
-    {
-        for( i=0; i<framesPerBuffer; i++ )
-        {
-            *wptr++ = *rptr++;  /* left */
-            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
-        }
-        data->frameIndex += framesPerBuffer;
-        finished = paContinue;
-    }
     return finished;
 }
 
@@ -263,7 +212,7 @@ int main(void)
 #if WRITE_TO_FILE
     {
         FILE  *fid;
-        fid = fopen("recorded.raw", "wb");
+        fid = fopen("input.pcm", "wb");
         if( fid == NULL )
         {
             printf("Could not open file.");
@@ -272,7 +221,7 @@ int main(void)
         {
             fwrite( data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid );
             fclose( fid );
-            printf("Wrote data to 'recorded.raw'\n");
+            printf("Wrote data to 'input.pcm'\n");
         }
     }
 #endif

@@ -17,3 +17,6 @@ TARGET_LINK_LIBRARIES(echo ${DYNAMIC_LIBRARIES})
 
 ADD_EXECUTABLE(playback_record playback_record.c)
 TARGET_LINK_LIBRARIES(playback_record ${DYNAMIC_LIBRARIES})
+
+ADD_EXECUTABLE(paex_read_write_wire paex_read_write_wire.c)
+TARGET_LINK_LIBRARIES(paex_read_write_wire ${DYNAMIC_LIBRARIES})

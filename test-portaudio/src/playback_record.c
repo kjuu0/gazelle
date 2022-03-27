@@ -3,13 +3,15 @@
 #include "portaudio.h"
 
 /* Select sample format. */
-#define SAMPLE_RATE  (44100)
+#define SAMPLE_RATE  (16000)
 #define FRAMES_PER_BUFFER (0)
-#define NUM_SECONDS     (5)
+#define NUM_SECONDS     (2)
 #define NUM_CHANNELS    (2)
-#define PA_SAMPLE_TYPE  paFloat32
-typedef float SAMPLE;
-#define SAMPLE_SILENCE  (0.0f)
+
+#define PA_SAMPLE_TYPE  paInt16
+typedef short SAMPLE;
+#define SAMPLE_SILENCE  (0)
+#define PRINTF_S_FORMAT "%d"
 
 // float readfloat(FILE *f) {
 //   float v;
@@ -92,7 +94,7 @@ int main(void)
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
     FILE *fid;
-    fid = fopen("recorded.raw", "r");
+    fid = fopen("input.pcm", "r");
     fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), data.maxFrameIndex, fid);
     fclose(fid);
 

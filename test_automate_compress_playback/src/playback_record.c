@@ -95,7 +95,7 @@ int main(void)
 
     FILE *fid;
     fid = fopen("input.pcm", "r");
-    fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), data.maxFrameIndex, fid);
+    fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid);
     fclose(fid);
 
     err = Pa_Initialize();
