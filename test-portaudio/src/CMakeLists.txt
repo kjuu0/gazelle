@@ -1,7 +1,8 @@
 INCLUDE_DIRECTORIES(/usr/local/include)
 LINK_DIRECTORIES(/usr/local/lib)
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/bin)
-SET(DYNAMIC_LIBRARIES libportaudio.dylib)
+SET(DYNAMIC_LIBRARIES libportaudio.dylib liblpcnet.dylib)
+
 
 ADD_EXECUTABLE(pa_devs pa_devs.c)
 TARGET_LINK_LIBRARIES(pa_devs ${DYNAMIC_LIBRARIES})

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "portaudio.h"
+#include "lpcnet.h"
 
 #define SAMPLE_RATE  (44100)
 
