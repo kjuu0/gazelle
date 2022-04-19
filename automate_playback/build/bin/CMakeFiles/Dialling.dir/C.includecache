@@ -6,13 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/mymac/Desktop/gazelle/automate_playback/src/paex_record.c
+/Users/mymac/Desktop/gazelle/automate_playback/src/Dialling.c
 stdio.h
 -
 stdlib.h
 -
+pthread.h
+-
+unistd.h
+-
+string.h
+-
 portaudio.h
 /Users/mymac/Desktop/gazelle/automate_playback/src/portaudio.h
+lpcnet.h
+/Users/mymac/Desktop/gazelle/automate_playback/src/lpcnet.h
+
+/usr/local/include/lpcnet.h
 
 /usr/local/include/portaudio.h
 

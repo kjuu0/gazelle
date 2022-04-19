@@ -1,6 +1,7 @@
-/Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/CMakeFiles/rebuild_cache.dir
-/Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/CMakeFiles/edit_cache.dir
-/Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/rebuild_cache.dir
-/Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/edit_cache.dir
-/Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/playback_record.dir
-/Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/bin/CMakeFiles/paex_record.dir
+/Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles/rebuild_cache.dir
+/Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles/edit_cache.dir
+/Users/mymac/Desktop/gazelle/automate_playback/build/bin/CMakeFiles/rebuild_cache.dir
+/Users/mymac/Desktop/gazelle/automate_playback/build/bin/CMakeFiles/edit_cache.dir
+/Users/mymac/Desktop/gazelle/automate_playback/build/bin/CMakeFiles/Dialling.dir
+/Users/mymac/Desktop/gazelle/automate_playback/build/bin/CMakeFiles/playback_record.dir
+/Users/mymac/Desktop/gazelle/automate_playback/build/bin/CMakeFiles/paex_record.dir

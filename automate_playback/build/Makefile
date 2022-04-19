@@ -67,10 +67,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/test_automate_compress_playback
+CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/automate_playback
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build
+CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/automate_playback/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/CMakeFiles /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles /Users/mymac/Desktop/gazelle/automate_playback/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named Dialling
+
+# Build rule for target.
+Dialling: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Dialling
+.PHONY : Dialling
+
+# fast build rule for target.
+Dialling/fast:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/build
+.PHONY : Dialling/fast
 
 #=============================================================================
 # Target rules for targets named playback_record
@@ -163,6 +176,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Dialling"
 	@echo "... paex_record"
 	@echo "... playback_record"
 .PHONY : help

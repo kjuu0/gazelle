@@ -67,10 +67,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/test_automate_compress_playback
+CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/automate_playback
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build
+CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/automate_playback/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/CMakeFiles /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/bin//CMakeFiles/progress.marks
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build/CMakeFiles 0
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles /Users/mymac/Desktop/gazelle/automate_playback/build/bin//CMakeFiles/progress.marks
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/clean
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,37 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
+bin/CMakeFiles/Dialling.dir/rule:
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling.dir/rule
+.PHONY : bin/CMakeFiles/Dialling.dir/rule
+
+# Convenience name for target.
+Dialling: bin/CMakeFiles/Dialling.dir/rule
+
+.PHONY : Dialling
+
+# fast build rule for target.
+Dialling/fast:
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/build
+.PHONY : Dialling/fast
+
+# Convenience name for target.
 bin/CMakeFiles/playback_record.dir/rule:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/playback_record.dir/rule
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/playback_record.dir/rule
 .PHONY : bin/CMakeFiles/playback_record.dir/rule
 
 # Convenience name for target.
@@ -141,12 +156,12 @@ playback_record: bin/CMakeFiles/playback_record.dir/rule
 
 # fast build rule for target.
 playback_record/fast:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/build
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/build
 .PHONY : playback_record/fast
 
 # Convenience name for target.
 bin/CMakeFiles/paex_record.dir/rule:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/paex_record.dir/rule
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/paex_record.dir/rule
 .PHONY : bin/CMakeFiles/paex_record.dir/rule
 
 # Convenience name for target.
@@ -156,8 +171,35 @@ paex_record: bin/CMakeFiles/paex_record.dir/rule
 
 # fast build rule for target.
 paex_record/fast:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
 .PHONY : paex_record/fast
+
+Dialling.o: Dialling.c.o
+
+.PHONY : Dialling.o
+
+# target to build an object file
+Dialling.c.o:
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.o
+.PHONY : Dialling.c.o
+
+Dialling.i: Dialling.c.i
+
+.PHONY : Dialling.i
+
+# target to preprocess a source file
+Dialling.c.i:
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.i
+.PHONY : Dialling.c.i
+
+Dialling.s: Dialling.c.s
+
+.PHONY : Dialling.s
+
+# target to generate assembly for a file
+Dialling.c.s:
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.s
+.PHONY : Dialling.c.s
 
 paex_record.o: paex_record.c.o
 
@@ -165,7 +207,7 @@ paex_record.o: paex_record.c.o
 
 # target to build an object file
 paex_record.c.o:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.o
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.o
 .PHONY : paex_record.c.o
 
 paex_record.i: paex_record.c.i
@@ -174,7 +216,7 @@ paex_record.i: paex_record.c.i
 
 # target to preprocess a source file
 paex_record.c.i:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.i
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.i
 .PHONY : paex_record.c.i
 
 paex_record.s: paex_record.c.s
@@ -183,7 +225,7 @@ paex_record.s: paex_record.c.s
 
 # target to generate assembly for a file
 paex_record.c.s:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.s
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.s
 .PHONY : paex_record.c.s
 
 playback_record.o: playback_record.c.o
@@ -192,7 +234,7 @@ playback_record.o: playback_record.c.o
 
 # target to build an object file
 playback_record.c.o:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.o
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.o
 .PHONY : playback_record.c.o
 
 playback_record.i: playback_record.c.i
@@ -201,7 +243,7 @@ playback_record.i: playback_record.c.i
 
 # target to preprocess a source file
 playback_record.c.i:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.i
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.i
 .PHONY : playback_record.c.i
 
 playback_record.s: playback_record.c.s
@@ -210,7 +252,7 @@ playback_record.s: playback_record.c.s
 
 # target to generate assembly for a file
 playback_record.c.s:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.s
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.s
 .PHONY : playback_record.c.s
 
 # Help Target
@@ -221,8 +263,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Dialling"
 	@echo "... paex_record"
 	@echo "... playback_record"
+	@echo "... Dialling.o"
+	@echo "... Dialling.i"
+	@echo "... Dialling.s"
 	@echo "... paex_record.o"
 	@echo "... paex_record.i"
 	@echo "... paex_record.s"
@@ -240,6 +286,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/mymac/Desktop/gazelle/test_automate_compress_playback/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

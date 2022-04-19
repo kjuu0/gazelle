@@ -1,4 +1,4 @@
-# Install script for directory: /Users/mymac/Desktop/gazelle/test_automate_compress_playback/src
+# Install script for directory: /Users/mymac/Desktop/gazelle/automate_playback/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
