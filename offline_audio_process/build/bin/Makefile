@@ -67,10 +67,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/automate_playback
+CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/offline_audio_process
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/automate_playback/build
+CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/offline_audio_process/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles /Users/mymac/Desktop/gazelle/automate_playback/build/bin//CMakeFiles/progress.marks
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 0
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles /Users/mymac/Desktop/gazelle/offline_audio_process/build/bin//CMakeFiles/progress.marks
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/clean
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,37 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
+bin/CMakeFiles/Dialling3.dir/rule:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling3.dir/rule
+.PHONY : bin/CMakeFiles/Dialling3.dir/rule
+
+# Convenience name for target.
+Dialling3: bin/CMakeFiles/Dialling3.dir/rule
+
+.PHONY : Dialling3
+
+# fast build rule for target.
+Dialling3/fast:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/build
+.PHONY : Dialling3/fast
+
+# Convenience name for target.
 bin/CMakeFiles/Dialling.dir/rule:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling.dir/rule
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling.dir/rule
 .PHONY : bin/CMakeFiles/Dialling.dir/rule
 
 # Convenience name for target.
@@ -141,27 +156,12 @@ Dialling: bin/CMakeFiles/Dialling.dir/rule
 
 # fast build rule for target.
 Dialling/fast:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/build
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/build
 .PHONY : Dialling/fast
 
 # Convenience name for target.
-bin/CMakeFiles/playback_record.dir/rule:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/playback_record.dir/rule
-.PHONY : bin/CMakeFiles/playback_record.dir/rule
-
-# Convenience name for target.
-playback_record: bin/CMakeFiles/playback_record.dir/rule
-
-.PHONY : playback_record
-
-# fast build rule for target.
-playback_record/fast:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/build
-.PHONY : playback_record/fast
-
-# Convenience name for target.
 bin/CMakeFiles/paex_record.dir/rule:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/paex_record.dir/rule
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/paex_record.dir/rule
 .PHONY : bin/CMakeFiles/paex_record.dir/rule
 
 # Convenience name for target.
@@ -171,8 +171,38 @@ paex_record: bin/CMakeFiles/paex_record.dir/rule
 
 # fast build rule for target.
 paex_record/fast:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
 .PHONY : paex_record/fast
+
+# Convenience name for target.
+bin/CMakeFiles/playback_record.dir/rule:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/playback_record.dir/rule
+.PHONY : bin/CMakeFiles/playback_record.dir/rule
+
+# Convenience name for target.
+playback_record: bin/CMakeFiles/playback_record.dir/rule
+
+.PHONY : playback_record
+
+# fast build rule for target.
+playback_record/fast:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/build
+.PHONY : playback_record/fast
+
+# Convenience name for target.
+bin/CMakeFiles/Dialling2.dir/rule:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling2.dir/rule
+.PHONY : bin/CMakeFiles/Dialling2.dir/rule
+
+# Convenience name for target.
+Dialling2: bin/CMakeFiles/Dialling2.dir/rule
+
+.PHONY : Dialling2
+
+# fast build rule for target.
+Dialling2/fast:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/build
+.PHONY : Dialling2/fast
 
 Dialling.o: Dialling.c.o
 
@@ -180,7 +210,7 @@ Dialling.o: Dialling.c.o
 
 # target to build an object file
 Dialling.c.o:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.o
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.o
 .PHONY : Dialling.c.o
 
 Dialling.i: Dialling.c.i
@@ -189,7 +219,7 @@ Dialling.i: Dialling.c.i
 
 # target to preprocess a source file
 Dialling.c.i:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.i
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.i
 .PHONY : Dialling.c.i
 
 Dialling.s: Dialling.c.s
@@ -198,8 +228,62 @@ Dialling.s: Dialling.c.s
 
 # target to generate assembly for a file
 Dialling.c.s:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.s
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/Dialling.c.s
 .PHONY : Dialling.c.s
+
+Dialling2.o: Dialling2.c.o
+
+.PHONY : Dialling2.o
+
+# target to build an object file
+Dialling2.c.o:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/Dialling2.c.o
+.PHONY : Dialling2.c.o
+
+Dialling2.i: Dialling2.c.i
+
+.PHONY : Dialling2.i
+
+# target to preprocess a source file
+Dialling2.c.i:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/Dialling2.c.i
+.PHONY : Dialling2.c.i
+
+Dialling2.s: Dialling2.c.s
+
+.PHONY : Dialling2.s
+
+# target to generate assembly for a file
+Dialling2.c.s:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/Dialling2.c.s
+.PHONY : Dialling2.c.s
+
+Dialling3.o: Dialling3.c.o
+
+.PHONY : Dialling3.o
+
+# target to build an object file
+Dialling3.c.o:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/Dialling3.c.o
+.PHONY : Dialling3.c.o
+
+Dialling3.i: Dialling3.c.i
+
+.PHONY : Dialling3.i
+
+# target to preprocess a source file
+Dialling3.c.i:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/Dialling3.c.i
+.PHONY : Dialling3.c.i
+
+Dialling3.s: Dialling3.c.s
+
+.PHONY : Dialling3.s
+
+# target to generate assembly for a file
+Dialling3.c.s:
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/Dialling3.c.s
+.PHONY : Dialling3.c.s
 
 paex_record.o: paex_record.c.o
 
@@ -207,7 +291,7 @@ paex_record.o: paex_record.c.o
 
 # target to build an object file
 paex_record.c.o:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.o
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.o
 .PHONY : paex_record.c.o
 
 paex_record.i: paex_record.c.i
@@ -216,7 +300,7 @@ paex_record.i: paex_record.c.i
 
 # target to preprocess a source file
 paex_record.c.i:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.i
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.i
 .PHONY : paex_record.c.i
 
 paex_record.s: paex_record.c.s
@@ -225,7 +309,7 @@ paex_record.s: paex_record.c.s
 
 # target to generate assembly for a file
 paex_record.c.s:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.s
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/paex_record.c.s
 .PHONY : paex_record.c.s
 
 playback_record.o: playback_record.c.o
@@ -234,7 +318,7 @@ playback_record.o: playback_record.c.o
 
 # target to build an object file
 playback_record.c.o:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.o
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.o
 .PHONY : playback_record.c.o
 
 playback_record.i: playback_record.c.i
@@ -243,7 +327,7 @@ playback_record.i: playback_record.c.i
 
 # target to preprocess a source file
 playback_record.c.i:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.i
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.i
 .PHONY : playback_record.c.i
 
 playback_record.s: playback_record.c.s
@@ -252,7 +336,7 @@ playback_record.s: playback_record.c.s
 
 # target to generate assembly for a file
 playback_record.c.s:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.s
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/playback_record.c.s
 .PHONY : playback_record.c.s
 
 # Help Target
@@ -264,11 +348,19 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Dialling"
+	@echo "... Dialling2"
+	@echo "... Dialling3"
 	@echo "... paex_record"
 	@echo "... playback_record"
 	@echo "... Dialling.o"
 	@echo "... Dialling.i"
 	@echo "... Dialling.s"
+	@echo "... Dialling2.o"
+	@echo "... Dialling2.i"
+	@echo "... Dialling2.s"
+	@echo "... Dialling3.o"
+	@echo "... Dialling3.i"
+	@echo "... Dialling3.s"
 	@echo "... paex_record.o"
 	@echo "... paex_record.i"
 	@echo "... paex_record.s"
@@ -286,6 +378,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/mymac/Desktop/gazelle/automate_playback/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/mymac/Desktop/gazelle/offline_audio_process/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

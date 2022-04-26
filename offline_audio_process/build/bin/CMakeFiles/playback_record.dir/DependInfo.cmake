@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/mymac/Desktop/gazelle/automate_playback/src/playback_record.c" "/Users/mymac/Desktop/gazelle/automate_playback/build/bin/CMakeFiles/playback_record.dir/playback_record.c.o"
+  "/Users/mymac/Desktop/gazelle/offline_audio_process/src/playback_record.c" "/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/playback_record.dir/playback_record.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

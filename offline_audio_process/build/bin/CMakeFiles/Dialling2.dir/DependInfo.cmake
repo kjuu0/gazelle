@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/mymac/Desktop/gazelle/offline_audio_process/src/paex_record.c" "/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/paex_record.dir/paex_record.c.o"
+  "/Users/mymac/Desktop/gazelle/offline_audio_process/src/Dialling2.c" "/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/Dialling2.dir/Dialling2.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/mymac/Desktop/gazelle/automate_playback/src/Dialling.c
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/Dialling.c
 stdio.h
 -
 stdlib.h
@@ -18,9 +18,9 @@ unistd.h
 string.h
 -
 portaudio.h
-/Users/mymac/Desktop/gazelle/automate_playback/src/portaudio.h
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/portaudio.h
 lpcnet.h
-/Users/mymac/Desktop/gazelle/automate_playback/src/lpcnet.h
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/lpcnet.h
 
 /usr/local/include/lpcnet.h
 

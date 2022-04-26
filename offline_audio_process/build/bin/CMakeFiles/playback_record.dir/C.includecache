@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/mymac/Desktop/gazelle/automate_playback/src/playback_record.c
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/playback_record.c
 stdio.h
 -
 stdlib.h
 -
 portaudio.h
-/Users/mymac/Desktop/gazelle/automate_playback/src/portaudio.h
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/portaudio.h
 
 /usr/local/include/portaudio.h
 
