@@ -67,10 +67,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/automate_playback
+CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/offline_audio_process
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/automate_playback/build
+CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/offline_audio_process/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles /Users/mymac/Desktop/gazelle/automate_playback/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles /Users/mymac/Desktop/gazelle/offline_audio_process/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,6 +130,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Dialling3
+
+# Build rule for target.
+Dialling3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Dialling3
+.PHONY : Dialling3
+
+# fast build rule for target.
+Dialling3/fast:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/build
+.PHONY : Dialling3/fast
+
+#=============================================================================
 # Target rules for targets named Dialling
 
 # Build rule for target.
@@ -141,6 +154,19 @@ Dialling: cmake_check_build_system
 Dialling/fast:
 	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/build
 .PHONY : Dialling/fast
+
+#=============================================================================
+# Target rules for targets named paex_record
+
+# Build rule for target.
+paex_record: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 paex_record
+.PHONY : paex_record
+
+# fast build rule for target.
+paex_record/fast:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
+.PHONY : paex_record/fast
 
 #=============================================================================
 # Target rules for targets named playback_record
@@ -156,17 +182,17 @@ playback_record/fast:
 .PHONY : playback_record/fast
 
 #=============================================================================
-# Target rules for targets named paex_record
+# Target rules for targets named Dialling2
 
 # Build rule for target.
-paex_record: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 paex_record
-.PHONY : paex_record
+Dialling2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Dialling2
+.PHONY : Dialling2
 
 # fast build rule for target.
-paex_record/fast:
-	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
-.PHONY : paex_record/fast
+Dialling2/fast:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/build
+.PHONY : Dialling2/fast
 
 # Help Target
 help:
@@ -177,6 +203,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Dialling"
+	@echo "... Dialling2"
+	@echo "... Dialling3"
 	@echo "... paex_record"
 	@echo "... playback_record"
 .PHONY : help

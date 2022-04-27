@@ -6,7 +6,7 @@
 #define SAMPLE_RATE  (16000)
 #define FRAMES_PER_BUFFER (0)
 #define NUM_SECONDS     (2)
-#define NUM_CHANNELS    (2)
+#define NUM_CHANNELS    (1)
 
 #define PA_SAMPLE_TYPE  paInt16
 typedef short SAMPLE;
@@ -94,7 +94,7 @@ int main(void)
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
     FILE *fid;
-    fid = fopen("output.pcm", "r");
+    fid = fopen("output.pcm", "rb");
     fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid);
     fclose(fid);
 
@@ -152,15 +152,3 @@ done:
     }
     return err;
 }
-
-
-
-
-
-
-
-
-
-
-
-

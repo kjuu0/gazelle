@@ -92,10 +92,7 @@ void* upload_data(void* arg){
     // ready input file
     FILE *fin;
     fin = fopen("input.pcm", "rb");
-    if (fin == NULL){
-        perror("Error open input.pcm");
-        // exit(-1);
-    }
+
     // ready lpcnet
     LPCNetEncState *net = lpcnet_encoder_create();
     // 480ms coompressed = 96 bytes
@@ -144,38 +141,16 @@ void* upload_data(void* arg){
 
 void* fetch_data(void* arg){
 
-    // FILE* fout = fopen("output.pcm","wb");
+    FILE* fout = fopen("output.pcm","wb");
     
     LPCNetDecState *net = lpcnet_decoder_create();
-    int j;
-
+    int i;
     unsigned char compressed_buf_480ms[12*LPCNET_COMPRESSED_SIZE];
     unsigned char compressed_buf[LPCNET_COMPRESSED_SIZE];
     SAMPLE pcm_buffer[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
 
-
-    data.maxFrameIndex = totalFrames = numSamples = 7680;
-    data.frameIndex = 0;
-    numBytes = numSamples * sizeof(SAMPLE);
-    data.recordedSamples = (SAMPLE*)malloc(numBytes);
-
-    /* Prepare to playback recorded data.  -------------------------------------------- */
-    err = Pa_Initialize();
-    if( err != paNoError ){exit(-1);}
-    
-    outputParameters.device = Pa_GetDefaultOutputDevice(); /* default output device */
-    if (outputParameters.device == paNoDevice) {
-        fprintf(stderr,"Error: No default output device.\n");
-        exit(-1);
-    }
-    outputParameters.channelCount = NUM_CHANNELS;
-    outputParameters.sampleFormat =  PA_SAMPLE_TYPE;
-    outputParameters.suggestedLatency = Pa_GetDeviceInfo( outputParameters.device )->defaultLowOutputLatency;
-    outputParameters.hostApiSpecificStreamInfo = NULL;  
-
     while(1){
         
-        data.frameIndex = 0;
         // halt until signal received
         // break if terminate signal received
         pthread_mutex_lock(&mutex);
@@ -185,38 +160,12 @@ void* fetch_data(void* arg){
 
         memcpy(compressed_buf_480ms, global_buffer, (global_buffer_empty + 12) * LPCNET_COMPRESSED_SIZE);
 
-        for(j = 0; j < global_buffer_empty + 12; j++){
+        for(i = 0; i < global_buffer_empty + 12; i++){
             memcpy(compressed_buf, compressed_buf_480ms + i * LPCNET_COMPRESSED_SIZE, LPCNET_COMPRESSED_SIZE);
             lpcnet_decode(net, compressed_buf, pcm_buffer);
-            memcpy(data.recordedSamples + i * LPCNET_PACKET_SAMPLES, pcm_buffer, LPCNET_PACKET_SAMPLES);
+            fwrite(pcm_buffer, sizeof(SAMPLE), LPCNET_PACKET_SAMPLES, fout);
+            // memcpy(data.recordedSamples + i * LPCNET_PACKET_SAMPLES, pcm_buffer, LPCNET_PACKET_SAMPLES);
         }
-
-        printf("\n=== Now playing back. ===\n"); fflush(stdout);
-        err = Pa_OpenStream(
-                &stream,
-                NULL, /* no input */
-                &outputParameters,
-                SAMPLE_RATE,
-                FRAMES_PER_BUFFER,
-                paClipOff,      /* we won't output out of range samples so don't bother clipping them */
-                playCallback,
-                &data );
-        if( err != paNoError ){exit(-1);};
-
-        if( stream )
-        {
-            err = Pa_StartStream( stream );
-            if( err != paNoError ){exit(-1);}
-
-            printf("Waiting for playback to finish.\n"); fflush(stdout);
-
-            while( ( err = Pa_IsStreamActive( stream ) ) == 1 ) Pa_Sleep(100);
-            if( err < 0 ){exit(-1);}
-
-            err = Pa_CloseStream( stream );
-            if( err != paNoError ){exit(-1);}
-        }
-
 
         pthread_cond_signal(&cond_new_wanted);
         pthread_mutex_unlock(&mutex);
@@ -230,7 +179,6 @@ void* fetch_data(void* arg){
         }
     }
     lpcnet_decoder_destroy(net);
-    Pa_Terminate();
     return 0;
 }
 
@@ -312,6 +260,37 @@ int main(){
     }
 
 
+    fid = fopen("output.pcm", "rb");
+    fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid);
+    fclose(fid);
+    data.frameIndex = 0;
+
+    printf("\n=== Now playing back. ===\n"); fflush(stdout);
+    err = Pa_OpenStream(
+            &stream,
+            NULL, /* no input */
+            &outputParameters,
+            SAMPLE_RATE,
+            FRAMES_PER_BUFFER,
+            paClipOff,      /* we won't output out of range samples so don't bother clipping them */
+            playCallback,
+            &data );
+    // if( err != paNoError ) goto done;
+
+    if( stream )
+    {
+        err = Pa_StartStream( stream );
+        // if( err != paNoError ) goto done;
+
+        printf("Waiting for playback to finish.\n"); fflush(stdout);
+
+        while( ( err = Pa_IsStreamActive( stream ) ) == 1 ) Pa_Sleep(100);
+        // if( err < 0 ) goto done;
+
+        err = Pa_CloseStream( stream );
+        // if( err != paNoError ) goto done;
+    }
+    
     pthread_mutex_destroy(&mutex);
     pthread_cond_destroy(&cond_new_wanted);
     pthread_cond_destroy(&cond_new_ready);

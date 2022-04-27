@@ -63,10 +63,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/automate_playback
+CMAKE_SOURCE_DIR = /Users/mymac/Desktop/gazelle/offline_audio_process
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/automate_playback/build
+CMAKE_BINARY_DIR = /Users/mymac/Desktop/gazelle/offline_audio_process/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -90,9 +90,11 @@ clean: bin/clean
 # Directory level rules for directory bin
 
 # Recursive "all" directory target.
+bin/all: bin/CMakeFiles/Dialling3.dir/all
 bin/all: bin/CMakeFiles/Dialling.dir/all
-bin/all: bin/CMakeFiles/playback_record.dir/all
 bin/all: bin/CMakeFiles/paex_record.dir/all
+bin/all: bin/CMakeFiles/playback_record.dir/all
+bin/all: bin/CMakeFiles/Dialling2.dir/all
 
 .PHONY : bin/all
 
@@ -102,11 +104,40 @@ bin/preinstall:
 .PHONY : bin/preinstall
 
 # Recursive "clean" directory target.
+bin/clean: bin/CMakeFiles/Dialling3.dir/clean
 bin/clean: bin/CMakeFiles/Dialling.dir/clean
-bin/clean: bin/CMakeFiles/playback_record.dir/clean
 bin/clean: bin/CMakeFiles/paex_record.dir/clean
+bin/clean: bin/CMakeFiles/playback_record.dir/clean
+bin/clean: bin/CMakeFiles/Dialling2.dir/clean
 
 .PHONY : bin/clean
+
+#=============================================================================
+# Target rules for target bin/CMakeFiles/Dialling3.dir
+
+# All Build rule for target.
+bin/CMakeFiles/Dialling3.dir/all:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/depend
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles --progress-num=5,6 "Built target Dialling3"
+.PHONY : bin/CMakeFiles/Dialling3.dir/all
+
+# Build rule for subdir invocation for target.
+bin/CMakeFiles/Dialling3.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling3.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 0
+.PHONY : bin/CMakeFiles/Dialling3.dir/rule
+
+# Convenience name for target.
+Dialling3: bin/CMakeFiles/Dialling3.dir/rule
+
+.PHONY : Dialling3
+
+# clean rule for target.
+bin/CMakeFiles/Dialling3.dir/clean:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling3.dir/build.make bin/CMakeFiles/Dialling3.dir/clean
+.PHONY : bin/CMakeFiles/Dialling3.dir/clean
 
 #=============================================================================
 # Target rules for target bin/CMakeFiles/Dialling.dir
@@ -115,14 +146,14 @@ bin/clean: bin/CMakeFiles/paex_record.dir/clean
 bin/CMakeFiles/Dialling.dir/all:
 	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/depend
 	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling.dir/build.make bin/CMakeFiles/Dialling.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles --progress-num=1,2 "Built target Dialling"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles --progress-num=1,2 "Built target Dialling"
 .PHONY : bin/CMakeFiles/Dialling.dir/all
 
 # Build rule for subdir invocation for target.
 bin/CMakeFiles/Dialling.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 0
 .PHONY : bin/CMakeFiles/Dialling.dir/rule
 
 # Convenience name for target.
@@ -136,20 +167,47 @@ bin/CMakeFiles/Dialling.dir/clean:
 .PHONY : bin/CMakeFiles/Dialling.dir/clean
 
 #=============================================================================
+# Target rules for target bin/CMakeFiles/paex_record.dir
+
+# All Build rule for target.
+bin/CMakeFiles/paex_record.dir/all:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/depend
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles --progress-num=7,8 "Built target paex_record"
+.PHONY : bin/CMakeFiles/paex_record.dir/all
+
+# Build rule for subdir invocation for target.
+bin/CMakeFiles/paex_record.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/paex_record.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 0
+.PHONY : bin/CMakeFiles/paex_record.dir/rule
+
+# Convenience name for target.
+paex_record: bin/CMakeFiles/paex_record.dir/rule
+
+.PHONY : paex_record
+
+# clean rule for target.
+bin/CMakeFiles/paex_record.dir/clean:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/clean
+.PHONY : bin/CMakeFiles/paex_record.dir/clean
+
+#=============================================================================
 # Target rules for target bin/CMakeFiles/playback_record.dir
 
 # All Build rule for target.
 bin/CMakeFiles/playback_record.dir/all:
 	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/depend
 	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/playback_record.dir/build.make bin/CMakeFiles/playback_record.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles --progress-num=5,6 "Built target playback_record"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles --progress-num=9,10 "Built target playback_record"
 .PHONY : bin/CMakeFiles/playback_record.dir/all
 
 # Build rule for subdir invocation for target.
 bin/CMakeFiles/playback_record.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/playback_record.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 0
 .PHONY : bin/CMakeFiles/playback_record.dir/rule
 
 # Convenience name for target.
@@ -163,31 +221,31 @@ bin/CMakeFiles/playback_record.dir/clean:
 .PHONY : bin/CMakeFiles/playback_record.dir/clean
 
 #=============================================================================
-# Target rules for target bin/CMakeFiles/paex_record.dir
+# Target rules for target bin/CMakeFiles/Dialling2.dir
 
 # All Build rule for target.
-bin/CMakeFiles/paex_record.dir/all:
-	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/depend
-	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles --progress-num=3,4 "Built target paex_record"
-.PHONY : bin/CMakeFiles/paex_record.dir/all
+bin/CMakeFiles/Dialling2.dir/all:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/depend
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles --progress-num=3,4 "Built target Dialling2"
+.PHONY : bin/CMakeFiles/Dialling2.dir/all
 
 # Build rule for subdir invocation for target.
-bin/CMakeFiles/paex_record.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/paex_record.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/automate_playback/build/CMakeFiles 0
-.PHONY : bin/CMakeFiles/paex_record.dir/rule
+bin/CMakeFiles/Dialling2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin/CMakeFiles/Dialling2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles 0
+.PHONY : bin/CMakeFiles/Dialling2.dir/rule
 
 # Convenience name for target.
-paex_record: bin/CMakeFiles/paex_record.dir/rule
+Dialling2: bin/CMakeFiles/Dialling2.dir/rule
 
-.PHONY : paex_record
+.PHONY : Dialling2
 
 # clean rule for target.
-bin/CMakeFiles/paex_record.dir/clean:
-	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/paex_record.dir/build.make bin/CMakeFiles/paex_record.dir/clean
-.PHONY : bin/CMakeFiles/paex_record.dir/clean
+bin/CMakeFiles/Dialling2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f bin/CMakeFiles/Dialling2.dir/build.make bin/CMakeFiles/Dialling2.dir/clean
+.PHONY : bin/CMakeFiles/Dialling2.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

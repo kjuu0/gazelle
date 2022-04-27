@@ -6,7 +6,7 @@
 #define SAMPLE_RATE  (16000)
 #define FRAMES_PER_BUFFER (0)
 #define NUM_SECONDS     (2)
-#define NUM_CHANNELS    (2)
+#define NUM_CHANNELS    (1)
 /* #define DITHER_FLAG     (paDitherOff) */
 #define DITHER_FLAG     (0) /**/
 /** Set to 1 if you want to capture the recording to a file. */
@@ -47,7 +47,7 @@ static int recordCallback( const void *inputBuffer, void *outputBuffer,
     unsigned long framesLeft = data->maxFrameIndex - data->frameIndex;
 
     (void) outputBuffer; /* Prevent unused variable warnings. */
-    (void) timeInfo;
+    (void) timeInfo; 
     (void) statusFlags;
     (void) userData;
 
