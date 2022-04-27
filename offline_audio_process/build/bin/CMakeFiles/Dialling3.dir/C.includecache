@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/Dialling3.c
+stdio.h
+-
+stdlib.h
+-
+pthread.h
+-
+unistd.h
+-
+string.h
+-
+portaudio.h
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/portaudio.h
+lpcnet.h
+/Users/mymac/Desktop/gazelle/offline_audio_process/src/lpcnet.h
+
+/usr/local/include/lpcnet.h
+
+/usr/local/include/portaudio.h
+

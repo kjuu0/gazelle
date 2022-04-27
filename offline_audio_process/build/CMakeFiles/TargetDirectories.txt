@@ -1,0 +1,9 @@
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles/rebuild_cache.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/CMakeFiles/edit_cache.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/rebuild_cache.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/edit_cache.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/Dialling3.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/Dialling.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/paex_record.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/playback_record.dir
+/Users/mymac/Desktop/gazelle/offline_audio_process/build/bin/CMakeFiles/Dialling2.dir
