@@ -1,3 +1,5 @@
+// open pcm file, compress, pass compressed file to global buffer, uncompress, and playback in 480ms intervals
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
