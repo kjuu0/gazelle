@@ -1,2 +1,3 @@
 offline_audio_process/build
 *.vscode
+*.DS_Store
