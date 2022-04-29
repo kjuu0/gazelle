@@ -73,9 +73,13 @@ static int playCallback( const void *inputBuffer, void *outputBuffer,
     return finished;
 }
 
-int main(void);
-int main(void)
+int main(int argc, char* argv[])
 {
+    char* fileName = "output.pcm";
+    if(argc == 2){
+        fileName = argv[1];
+    }
+
     PaStreamParameters  outputParameters;
     PaStream*           stream;
     PaError             err = paNoError;
@@ -94,7 +98,12 @@ int main(void)
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
     FILE *fid;
-    fid = fopen("output.pcm", "rb");
+    fid = fopen(fileName, "rb");
+    if(!fid){
+        fprintf(stderr, "Error open file %s\n", fileName);
+        return -1;
+    }
+
     fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid);
     fclose(fid);
 
