@@ -53,7 +53,8 @@ void * periodic_send(void *client);
 
 // gazelle
 string output_file;
-std::FILE* fin, fout;
+std::FILE* fin;
+std::FILE* fout;
 
 class AddraClient {
 public:
