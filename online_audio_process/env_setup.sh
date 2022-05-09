@@ -16,6 +16,7 @@ wget pa_stable_v190700_20210406.tgz
 tar -xzvf pa_stable_v190700_20210406.tgz
 pushd portaudio
 ./configure && make
+sudo make install
 popd
 
 git clone https://github.com/xiph/LPCNet.git
@@ -24,6 +25,7 @@ pushd LPCNet
 ./configure
 make
 export CFLAGS='-Ofast -g -march=native'
+sudo make install
 popd
 
 # sudo apt-get install unzip
