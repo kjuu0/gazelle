@@ -70,7 +70,8 @@ public:
     unsigned char iv[AES_BLOCK_SIZE];
 
     // gazelle
-    string output_file;
+    string input_file, output_file;
+    std::FILE* fin, fout;
     unsigned char* compressed_buf;
     SAMPLE* pcm_buffer;
     LPCNetDecState* net; // gazelle LPC decoder
@@ -90,7 +91,10 @@ public:
 	    AES_set_decrypt_key(aes_key, sizeof(aes_key)*8, &dec_key); // Size of key is in bits
 
         // gazelle
-        output_file = "output.pcm"
+        input_file = "compressed.bin"
+        fin = std::fopen(input_file, "rb");
+        output_file = "output.pcm";
+        fout = std::fopen(output_file, "wb");
         del_file(output_file);
         compressed_buf = new unsigned char[LPCNET_COMPRESSED_SIZE];
         pcm_buffer = new SAMPLE[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
@@ -110,7 +114,10 @@ public:
 	    AES_set_decrypt_key(aes_key, sizeof(aes_key)*8, &dec_key); // Size of key is in bits
         
         // gazelle
-        output_file = "output.pcm"
+        input_file = "compressed.bin"
+        fin = std::fopen(input_file, "rb");
+        output_file = "output.pcm";
+        fout = std::fopen(output_file, "wb");
         del_file(output_file);
         compressed_buf = new unsigned char[LPCNET_COMPRESSED_SIZE];
         pcm_buffer = new SAMPLE[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
@@ -143,21 +150,21 @@ public:
         memset(iv, 0x00, AES_BLOCK_SIZE);
 	    AES_cbc_encrypt((unsigned char *)subround_send_data, subround_recv_data, MESSAGE_SIZE, &dec_key, iv, AES_DECRYPT); //Placeholder
 
-        write_to_file(output_file);
+        write_to_file();
         return;
     }
     // gazelle
     // remove content of the file for a new test
-    void del_file(string filename){
-        if(remove(filename) == 0){
+    void del_file(){
+        if(remove(output_file) == 0){
              std::cout << "File successfully deleted" << std::endl;
         }
             
     }
     // write content to the file
-    void write_to_file(fstream file){
+    void write_to_file(){
 
-        if(!file.is_open()){
+        if(!fout.is_open()){
             std::cout << "Error: File is not opened" << estd::endl;
             return;
         }
@@ -165,7 +172,7 @@ public:
         for(i = 0; i < 12; i++){
             memcpy(compressed_buf, subround_recv_data + i * LPCNET_COMPRESSED_SIZE, LPCNET_COMPRESSED_SIZE);
             lpcnet_decode(net, compressed_buf, pcm_buffer);
-            fwrite(pcm_buffer, sizeof(SAMPLE), LPCNET_PACKET_SAMPLES, file);
+            fwrite(pcm_buffer, sizeof(SAMPLE), LPCNET_PACKET_SAMPLES, fout);
         }
     }
 
@@ -265,11 +272,6 @@ int main(int argc, char *argv[]) {
         send_timestamp[i] = new uint64_t[NUM_ROUND];
         recv_timestamp[i] = new uint64_t[NUM_ROUND];
     }
-
-    // gazelle, open input file
-    std::fstream fin;
-    fin.open(compressed.bin, std::fstream::in | std::fstream::out | std::fstream::app);
-    // end
 
     chrono::high_resolution_clock::time_point time_start, time_end, total_start, total_end;
     srand (time(NULL));
@@ -440,9 +442,8 @@ void * periodic_send(void *client) {
         timeout += std::chrono::microseconds(SUBROUND_TIME * 1000);
         std::memset(cl->iv, 0x00, AES_BLOCK_SIZE);
         
-        // read pcm data
-        ret = fread(pcm_buffer, sizeof(SAMPLE), LPCNET_PACKET_SAMPLES, fin);
-
+        // read input data
+        ret = fread(cl->subround_send_data, sizeof(char), MESSAGE_SIZE, fin);
 
         // if end of file, send dummy data 
         for(int i = 0;i<MESSAGE_SIZE;i++) {
