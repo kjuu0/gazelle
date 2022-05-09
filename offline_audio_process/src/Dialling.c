@@ -200,7 +200,7 @@ void* fetch_data(void* arg){
                 &outputParameters,
                 SAMPLE_RATE,
                 FRAMES_PER_BUFFER,
-                paClipOff,      /* we won't output out of range samples so don't bother clipping them */
+                paClipOff,
                 playCallback,
                 &data );
         if( err != paNoError ){exit(-1);};
