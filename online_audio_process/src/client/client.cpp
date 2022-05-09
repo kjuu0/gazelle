@@ -51,6 +51,13 @@ chrono::high_resolution_clock::time_point latency_time_start, latency_time_end;
 vector<uint64_t> rotate_plain(vector<uint64_t> original, int index);
 void * periodic_send(void *client);
 
+// gazelle
+string input_file, output_file;
+std::FILE* fin, fout;
+input_file = "compressed.bin"
+fin = std::fopen(input_file, "rb");
+output_file = "output.pcm";
+fout = std::fopen(output_file, "wb");
 
 class AddraClient {
 public:
@@ -70,8 +77,6 @@ public:
     unsigned char iv[AES_BLOCK_SIZE];
 
     // gazelle
-    string input_file, output_file;
-    std::FILE* fin, fout;
     unsigned char* compressed_buf;
     SAMPLE* pcm_buffer;
     LPCNetDecState* net; // gazelle LPC decoder
@@ -91,11 +96,7 @@ public:
 	    AES_set_decrypt_key(aes_key, sizeof(aes_key)*8, &dec_key); // Size of key is in bits
 
         // gazelle
-        input_file = "compressed.bin"
-        fin = std::fopen(input_file, "rb");
-        output_file = "output.pcm";
-        fout = std::fopen(output_file, "wb");
-        del_file(output_file);
+        del_file();
         compressed_buf = new unsigned char[LPCNET_COMPRESSED_SIZE];
         pcm_buffer = new SAMPLE[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
         net = lpcnet_decoder_create();
@@ -114,11 +115,7 @@ public:
 	    AES_set_decrypt_key(aes_key, sizeof(aes_key)*8, &dec_key); // Size of key is in bits
         
         // gazelle
-        input_file = "compressed.bin"
-        fin = std::fopen(input_file, "rb");
-        output_file = "output.pcm";
-        fout = std::fopen(output_file, "wb");
-        del_file(output_file);
+        del_file();
         compressed_buf = new unsigned char[LPCNET_COMPRESSED_SIZE];
         pcm_buffer = new SAMPLE[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
         net = lpcnet_decoder_create();
@@ -327,6 +324,10 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    fclose(fin);
+    fclose(fout);
+
+
     // all round is finished
     // portaudio output received data
     PaStreamParameters  outputParameters;
@@ -345,10 +346,9 @@ int main(int argc, char *argv[]) {
     numBytes = numSamples * sizeof(SAMPLE);
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
-    FILE *fid;
-    fid = fopen("output.pcm", "rb");
-    fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fid);
-    fclose(fid);
+    fout = fopen(output_file, "rb");
+    fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fout);
+    fclose(fout);
 
     err = Pa_Initialize();
     // if( err != paNoError ) goto done;
@@ -390,9 +390,8 @@ int main(int argc, char *argv[]) {
         err = Pa_CloseStream( stream );
         // if( err != paNoError ) goto done;
     }
-
-
 }
+
 
 
 vector<uint64_t> rotate_plain(vector<uint64_t> original, int index) {
@@ -444,11 +443,13 @@ void * periodic_send(void *client) {
         
         // read input data
         ret = fread(cl->subround_send_data, sizeof(char), MESSAGE_SIZE, fin);
-
-        // if end of file, send dummy data 
-        for(int i = 0;i<MESSAGE_SIZE;i++) {
-            cl->subround_send_data[i] = 100 + cl->idx;
+        if(ret < MESSAGE_SIZE){
+            // if end of file, send dummy data 
+            for(int i = MESSAGE_SIZE - ret;i<MESSAGE_SIZE;i++) {
+                cl->subround_send_data[i] = 100 + cl->idx;
+            }
         }
+
         AES_cbc_encrypt(cl->subround_send_data, enc_data, MESSAGE_SIZE, &cl->enc_key, cl->iv, AES_ENCRYPT);
         send_timestamp[cl->idx][send_count++] = chrono::duration_cast<chrono::microseconds>(clock::now().time_since_epoch()).count();
         msg_client.call("sendMSG",cl->idx, string((char *)enc_data));
