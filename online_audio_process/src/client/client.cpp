@@ -52,12 +52,8 @@ vector<uint64_t> rotate_plain(vector<uint64_t> original, int index);
 void * periodic_send(void *client);
 
 // gazelle
-string input_file, output_file;
+string = output_file;
 std::FILE* fin, fout;
-input_file = "compressed.bin"
-fin = std::fopen(input_file, "rb");
-output_file = "output.pcm";
-fout = std::fopen(output_file, "wb");
 
 class AddraClient {
 public:
@@ -160,13 +156,7 @@ public:
     }
     // write content to the file
     void write_to_file(){
-
-        if(!fout.is_open()){
-            std::cout << "Error: File is not opened" << estd::endl;
-            return;
-        }
-        int = 0;
-        for(i = 0; i < 12; i++){
+        for(int i = 0; i < 12; i++){
             memcpy(compressed_buf, subround_recv_data + i * LPCNET_COMPRESSED_SIZE, LPCNET_COMPRESSED_SIZE);
             lpcnet_decode(net, compressed_buf, pcm_buffer);
             fwrite(pcm_buffer, sizeof(SAMPLE), LPCNET_PACKET_SAMPLES, fout);
@@ -269,6 +259,12 @@ int main(int argc, char *argv[]) {
         send_timestamp[i] = new uint64_t[NUM_ROUND];
         recv_timestamp[i] = new uint64_t[NUM_ROUND];
     }
+
+    // gazelle
+    fin = std::fopen("compressed.bin", "rb");
+    output_file = "output.pcm";
+    fout = std::fopen(output_file, "wb");
+    // gazelle end
 
     chrono::high_resolution_clock::time_point time_start, time_end, total_start, total_end;
     srand (time(NULL));
