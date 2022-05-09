@@ -92,7 +92,6 @@ public:
 	    AES_set_decrypt_key(aes_key, sizeof(aes_key)*8, &dec_key); // Size of key is in bits
 
         // gazelle
-        del_file();
         compressed_buf = new unsigned char[LPCNET_COMPRESSED_SIZE];
         pcm_buffer = new SAMPLE[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
         net = lpcnet_decoder_create();
@@ -111,7 +110,6 @@ public:
 	    AES_set_decrypt_key(aes_key, sizeof(aes_key)*8, &dec_key); // Size of key is in bits
         
         // gazelle
-        del_file();
         compressed_buf = new unsigned char[LPCNET_COMPRESSED_SIZE];
         pcm_buffer = new SAMPLE[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
         net = lpcnet_decoder_create();
@@ -148,12 +146,12 @@ public:
     }
     // gazelle
     // remove content of the file for a new test
-    void del_file(){
-        if(remove(output_file) == 0){
-             std::cout << "File successfully deleted" << std::endl;
-        }
-            
-    }
+    // void del_file(){
+    //     if(remove(output_file) == 0){
+    //          std::cout << "File successfully deleted" << std::endl;
+    //     }    
+    // }
+    
     // write content to the file
     void write_to_file(){
         for(int i = 0; i < 12; i++){
