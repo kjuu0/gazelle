@@ -52,7 +52,7 @@ vector<uint64_t> rotate_plain(vector<uint64_t> original, int index);
 void * periodic_send(void *client);
 
 // gazelle
-string = output_file;
+string output_file;
 std::FILE* fin, fout;
 
 class AddraClient {
