@@ -151,7 +151,7 @@ public:
     //          std::cout << "File successfully deleted" << std::endl;
     //     }    
     // }
-    
+
     // write content to the file
     void write_to_file(){
         for(int i = 0; i < 12; i++){
@@ -160,56 +160,56 @@ public:
             fwrite(pcm_buffer, sizeof(SAMPLE), LPCNET_PACKET_SAMPLES, fout);
         }
     }
-
-    static int playCallback( const void *inputBuffer, void *outputBuffer,
-                            unsigned long framesPerBuffer,
-                            const PaStreamCallbackTimeInfo* timeInfo,
-                            PaStreamCallbackFlags statusFlags,
-                            void *userData )
-    {
-        paTestData* data = (paTestData*)userData;
-        SAMPLE *rptr = &data->recordedSamples[data->frameIndex * NUM_CHANNELS];
-        SAMPLE *wptr = (SAMPLE*)outputBuffer;
-        unsigned int i;
-        int finished;
-        unsigned int framesLeft = data->maxFrameIndex - data->frameIndex;
-
-        (void) inputBuffer; /* Prevent unused variable warnings. */
-        (void) timeInfo;
-        (void) statusFlags;
-        (void) userData;
-
-        if( framesLeft < framesPerBuffer )
-        {
-            /* final buffer... */
-            for( i=0; i<framesLeft; i++ )
-            {
-                *wptr++ = *rptr++;  /* left */
-                if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
-            }
-            for( ; i<framesPerBuffer; i++ )
-            {
-                *wptr++ = 0;  /* left */
-                if( NUM_CHANNELS == 2 ) *wptr++ = 0;  /* right */
-            }
-            data->frameIndex += framesLeft;
-            finished = paComplete;
-        }
-        else
-        {
-            for( i=0; i<framesPerBuffer; i++ )
-            {
-                *wptr++ = *rptr++;  /* left */
-                if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
-            }
-            data->frameIndex += framesPerBuffer;
-            finished = paContinue;
-        }
-        return finished;
-    }
-    
-
 };
+
+
+static int playCallback( const void *inputBuffer, void *outputBuffer,
+                        unsigned long framesPerBuffer,
+                        const PaStreamCallbackTimeInfo* timeInfo,
+                        PaStreamCallbackFlags statusFlags,
+                        void *userData )
+{
+    paTestData* data = (paTestData*)userData;
+    SAMPLE *rptr = &data->recordedSamples[data->frameIndex * NUM_CHANNELS];
+    SAMPLE *wptr = (SAMPLE*)outputBuffer;
+    unsigned int i;
+    int finished;
+    unsigned int framesLeft = data->maxFrameIndex - data->frameIndex;
+
+    (void) inputBuffer; /* Prevent unused variable warnings. */
+    (void) timeInfo;
+    (void) statusFlags;
+    (void) userData;
+
+    if( framesLeft < framesPerBuffer )
+    {
+        /* final buffer... */
+        for( i=0; i<framesLeft; i++ )
+        {
+            *wptr++ = *rptr++;  /* left */
+            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
+        }
+        for( ; i<framesPerBuffer; i++ )
+        {
+            *wptr++ = 0;  /* left */
+            if( NUM_CHANNELS == 2 ) *wptr++ = 0;  /* right */
+        }
+        data->frameIndex += framesLeft;
+        finished = paComplete;
+    }
+    else
+    {
+        for( i=0; i<framesPerBuffer; i++ )
+        {
+            *wptr++ = *rptr++;  /* left */
+            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
+        }
+        data->frameIndex += framesPerBuffer;
+        finished = paContinue;
+    }
+    return finished;
+}
+
 
 AddraClient *clients;
 
