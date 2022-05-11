@@ -351,7 +351,7 @@ int main(int argc, char *argv[]) {
     outputParameters.suggestedLatency = Pa_GetDeviceInfo( outputParameters.device )->defaultLowOutputLatency;
     outputParameters.hostApiSpecificStreamInfo = NULL;
 
-
+// 
     printf("\n=== Now playing back. ===\n"); fflush(stdout);
     err = Pa_OpenStream(
             &stream,
