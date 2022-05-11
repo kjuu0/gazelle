@@ -252,9 +252,9 @@ int main(int argc, char *argv[]) {
     }
 
     // gazelle
-    fin = std::fopen("compressed.bin", "r");
+    fin = std::fopen(("compressed.bin").c_str(), "r");
     output_file = "output.pcm";
-    fout = std::fopen(output_file, "w+");
+    fout = std::fopen(output_file.c_str(), "w+");
     // gazelle end
 
     chrono::high_resolution_clock::time_point time_start, time_end, total_start, total_end;
