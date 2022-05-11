@@ -53,8 +53,8 @@ void * periodic_send(void *client);
 
 // gazelle
 string output_file;
-std::FILE* fin;
-std::FILE* fout;
+FILE* fin;
+FILE* fout;
 
 class AddraClient {
 public:
@@ -146,13 +146,6 @@ public:
         return;
     }
     // gazelle
-    // remove content of the file for a new test
-    // void del_file(){
-    //     if(remove(output_file) == 0){
-    //          std::cout << "File successfully deleted" << std::endl;
-    //     }    
-    // }
-
     // write content to the file
     void write_to_file(){
         for(int i = 0; i < 12; i++){
@@ -211,7 +204,6 @@ static int playCallback( const void *inputBuffer, void *outputBuffer,
     return finished;
 }
 
-
 AddraClient *clients;
 
 int main(int argc, char *argv[]) {
@@ -260,9 +252,9 @@ int main(int argc, char *argv[]) {
     }
 
     // gazelle
-    fin = std::fopen("compressed.bin", "rb");
+    fin = std::fopen("compressed.bin", "r");
     output_file = "output.pcm";
-    fout = std::fopen(output_file, "wb");
+    fout = std::fopen(output_file, "w+");
     // gazelle end
 
     chrono::high_resolution_clock::time_point time_start, time_end, total_start, total_end;
