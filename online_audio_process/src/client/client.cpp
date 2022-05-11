@@ -252,7 +252,7 @@ int main(int argc, char *argv[]) {
     }
 
     // gazelle
-    fin = std::fopen("compressed.bin", 'r');
+    fin = std::fopen("compressed.bin", "r+");
     output_file = "output.pcm";
     fout = std::fopen(output_file.c_str(), "w+");
     // gazelle end
@@ -333,7 +333,7 @@ int main(int argc, char *argv[]) {
     numBytes = numSamples * sizeof(SAMPLE);
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
-    fout = fopen(output_file, 'r');
+    fout = fopen(output_file, "r+");
     fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fout);
     fclose(fout);
 
