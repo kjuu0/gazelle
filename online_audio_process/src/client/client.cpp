@@ -1,4 +1,4 @@
-#include<globals.h>
+#include <globals.h>
 
 using namespace std;
 using namespace seal;
