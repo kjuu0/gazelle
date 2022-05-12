@@ -9,10 +9,9 @@ sudo apt-get install -y build-essential autoconf libtool pkg-config
 sudo apt-get install git
 sudo apt-get install libasound-dev
 sudo apt-get install libtool
-sudo apt-get libtool-bin
 
 pushd ~
-wget pa_stable_v190700_20210406.tgz
+wget http://files.portaudio.com/archives/pa_stable_v190700_20210406.tgz
 tar -xzvf pa_stable_v190700_20210406.tgz
 pushd portaudio
 ./configure && make
