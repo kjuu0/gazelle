@@ -54,9 +54,10 @@ vector<uint64_t> rotate_plain(vector<uint64_t> original, int index);
 void * periodic_send(void *client);
 
 // gazelle
-const char output_file = "output.pcm";
-const char r = "r+";
-const char w = "w+";
+char compressed = "compressed.bin"
+char output_file = "output.pcm";
+char r = "r+";
+char w = "w+";
 FILE* fin;
 FILE* fout;
 
@@ -256,9 +257,9 @@ int main(int argc, char *argv[]) {
     }
 
     // gazelle
-    fin = std::fopen("compressed.bin", r);
+    fin = std::fopen(&compressed, &r);
     // output_file = "output.pcm";
-    fout = std::fopen(output_file, w);
+    fout = std::fopen(&output_file, &w);
     // gazelle end
 
     chrono::high_resolution_clock::time_point time_start, time_end, total_start, total_end;
@@ -337,7 +338,7 @@ int main(int argc, char *argv[]) {
     numBytes = numSamples * sizeof(SAMPLE);
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
-    fout = fopen(output_file, r);
+    fout = fopen&(output_file, &r);
     fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fout);
     fclose(fout);
 
