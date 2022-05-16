@@ -32,6 +32,7 @@
 
 // portaudio and lpcnet added
 #include <stdio.h>
+#include <cstdio>
 #include <fstream>
 #include <portaudio.h>
 #include <lpcnet.h>
