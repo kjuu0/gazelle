@@ -54,7 +54,7 @@ vector<uint64_t> rotate_plain(vector<uint64_t> original, int index);
 void * periodic_send(void *client);
 
 // gazelle
-char output_file[];
+char output_file[500];
 FILE* fin;
 FILE* fout;
 
