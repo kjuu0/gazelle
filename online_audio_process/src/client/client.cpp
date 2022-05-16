@@ -338,7 +338,7 @@ int main(int argc, char *argv[]) {
     numBytes = numSamples * sizeof(SAMPLE);
     data.recordedSamples = (SAMPLE *) malloc( numBytes );
 
-    fout = fopen&("output.pcm", "r+");
+    fout = fopen("output.pcm", "r+");
     fread(data.recordedSamples, NUM_CHANNELS * sizeof(SAMPLE), totalFrames, fout);
     fclose(fout);
 
