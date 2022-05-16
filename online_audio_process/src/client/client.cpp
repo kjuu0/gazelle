@@ -54,7 +54,7 @@ vector<uint64_t> rotate_plain(vector<uint64_t> original, int index);
 void * periodic_send(void *client);
 
 // gazelle
-char output_file[500];
+const char output_file = "output.pcm";
 FILE* fin;
 FILE* fout;
 
@@ -255,7 +255,7 @@ int main(int argc, char *argv[]) {
 
     // gazelle
     fin = std::fopen("compressed.bin", "r+");
-    output_file = "output.pcm";
+    // output_file = "output.pcm";
     fout = std::fopen(output_file, "w+");
     // gazelle end
 
