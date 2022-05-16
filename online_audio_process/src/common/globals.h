@@ -37,7 +37,7 @@
 #include <lpcnet.h>
 
 // portaudio settings
-#define SAMPLE_RATE  (16000)
+#define SAMPLE_RATE  (16000) // 1.6kb per seconds // libiary error, char array
 #define FRAMES_PER_BUFFER (0)
 #define NUM_SECONDS     (2)
 #define NUM_CHANNELS    (1)
