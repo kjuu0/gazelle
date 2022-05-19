@@ -2,6 +2,7 @@
 
 ## Build Steps
 1.
+Gazelle works on Linux environment only
 Virtual box set up Linux virtual machine:
 https://www.youtube.com/watch?v=mfPNI2SBOKk&t=1s
 

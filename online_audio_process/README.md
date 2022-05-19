@@ -1,3 +1,59 @@
+# Gazelle
+
+## Build Steps
+1.
+Gazelle works on Linux environment only
+Virtual box set up Linux virtual machine:
+https://www.youtube.com/watch?v=mfPNI2SBOKk&t=1s
+
+2.
+```
+cd online_audio_process
+./env_setup.sh
+```
+
+3.
+If portaudio or Lpcnet is not successfully installed, try installing them manually.
+
+Portaudio/
+http://files.portaudio.com/download.html
+```
+pushd ~/Downloads
+wget pa_stable_v190700_20210406.tgz
+tar -xzvf pa_stable_v190700_20210406.tgz
+pushd portaudio
+./configure && make
+autoconf
+autoreconf --install
+./configure && make
+sudo make install
+popd
+popd
+```
+
+lpcnet/
+https://github.com/xiph/LPCNet
+```
+pushd ~/Downloads
+git clone https://github.com/xiph/LPCNet.git
+pushd LPCNet
+./autogen.sh
+./configure
+make
+export CFLAGS='-Ofast -g -march=native'
+sudo make install
+popd
+popd
+```
+
+4.
+Follow Addra instructions
+
+5.
+When running the client, make sure to run in ../src/client, because
+we need compressed.bin, it is the input for the test.
+
+
 # Addra: A system for metadata private voice calls
 
 Addra is a system that allows its users to make voice calls among each other without revealing the metadata (e.g., participants, time, and duration of the call)
