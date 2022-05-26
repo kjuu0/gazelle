@@ -10,7 +10,7 @@
 
 #define SAMPLE_RATE  (16000)
 #define FRAMES_PER_BUFFER (0)
-#define NUM_SECONDS     (2)
+#define NUM_SECONDS     (2.4)
 #define NUM_CHANNELS    (1)
 #define PA_SAMPLE_TYPE  paInt16
 typedef short SAMPLE;
@@ -105,9 +105,9 @@ void* upload_data(void* arg){
     SAMPLE pcm_buffer[sizeof(SAMPLE) * LPCNET_PACKET_SAMPLES];
     size_t ret;
     int i;
-    
+
     while(1){
-        
+
         pthread_mutex_lock(&mutex);
 
         while(!global_buffer_empty){
@@ -194,6 +194,7 @@ int main(){
     global_buffer = malloc(96);
     size_t i;
 
+    clock_t begin = clock();
     for(i = 0; i < 2; i++){
         if(i == 0){
             pthread_create(&th[i], NULL, &upload_data, NULL);
@@ -207,6 +208,10 @@ int main(){
     for(i = 0; i < 2; i++){
         pthread_join(th[i], NULL);
     }
+
+    clock_t end = clock();
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("Time spent = %f", time_spent);
 
 // set the total number of frames to be recorded
     data.maxFrameIndex = totalFrames = NUM_SECONDS * SAMPLE_RATE;
@@ -292,7 +297,8 @@ int main(){
         err = Pa_CloseStream( stream );
         // if( err != paNoError ) goto done;
     }
-    
+
+
     pthread_mutex_destroy(&mutex);
     pthread_cond_destroy(&cond_new_wanted);
     pthread_cond_destroy(&cond_new_ready);

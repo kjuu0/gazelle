@@ -5,7 +5,7 @@
 // #define SAMPLE_RATE  (17932) // Test failure to open with this value. */
 #define SAMPLE_RATE  (16000)
 #define FRAMES_PER_BUFFER (0)
-#define NUM_SECONDS     (2)
+#define NUM_SECONDS     (2.4)
 #define NUM_CHANNELS    (1)
 /* #define DITHER_FLAG     (paDitherOff) */
 #define DITHER_FLAG     (0) /**/
